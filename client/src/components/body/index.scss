@@ -1,0 +1,10 @@
+.body-wrapper{
+  position: absolute;
+  margin-top: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 112px);
+  width: 100vw;
+}

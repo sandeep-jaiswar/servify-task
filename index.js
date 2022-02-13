@@ -1,13 +1,25 @@
-const express = require("express");
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
+const db = require('./utils/db');
 
-const app = express();
-const port = process.env.PORT || 3000;
+const app= express();
+app.use(cors())
+const port= process.env.PORT || 3000;
 
-app.get("/", (req, res) => {
-  console.log(req.headers.host);
-  res.send(`client name : ${req.headers.host.split('.')[0]}`);
-});
+app.get('/',async (req,res)=>{
+  const client = req.headers.host.split('.')[0];
+  const dbInstance = await db();
+  const dbo = dbInstance.db('TASK');
+  dbo.collection('CLIENTS').find({name:client}).toArray((err,response)=>{
+    if(err) throw err;
+    dbInstance.close();
+    console.log(response);
+    res.send(response);
+  })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+})
+
+app.listen(port,()=>{
+  console.log(`server is running on port ${port}`);
+})
