@@ -7,8 +7,7 @@ function Header() {
   const { secondary } = theme.palette.text;
   return (
     <div
-      className={`header-wrapper`}
-      style={{ backgroundColor: secondary }}
+      className={`header-wrapper fade-in`}
     ></div>
   );
 }

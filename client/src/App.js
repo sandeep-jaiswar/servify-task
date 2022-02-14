@@ -30,6 +30,13 @@ function App() {
         main: appData.secondary,
       },
     },
+    typography: {
+      fontFamily: [
+        appData.font,
+        "Roboto",
+        "sans-serif",
+      ].join(","),
+    },
   });
   return (
     <AppContext.Provider value={appData}>

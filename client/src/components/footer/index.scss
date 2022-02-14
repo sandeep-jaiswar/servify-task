@@ -1,6 +1,7 @@
 .footer-wrapper{
   position: absolute;
   bottom: 0;
-  height: 3.5rem;
+  min-height: 3.5rem;
   width: 100%;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }

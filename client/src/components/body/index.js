@@ -5,7 +5,7 @@ import "./index.scss";
 function Body() {
   const appdata = useContext(AppContext);
     return (
-      <div className={`body-wrapper`}>
+      <div className={`body-wrapper fade-in`}>
         <img src={appdata.logo} alt={`logo.png`} />
       </div>
     );

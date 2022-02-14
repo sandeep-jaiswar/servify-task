@@ -8,8 +8,7 @@ function Footer() {
   const { secondary } = theme.palette.text;
   return (
     <div
-      className={`footer-wrapper`}
-      style={{ backgroundColor: secondary }}
+      className={`footer-wrapper fade-in`}
     ></div>
   );
 }
