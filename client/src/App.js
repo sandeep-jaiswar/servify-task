@@ -5,6 +5,9 @@ import Footer from "./components/footer";
 import AppContext from "./utils/AppContext";
 import { createTheme, ThemeProvider } from "@material-ui/core";
 import Body from "./components/body";
+import { toast, ToastContainer } from "material-react-toastify";
+import "material-react-toastify/dist/ReactToastify.css";
+
 
 function App() {
   const [state, setState] = useState({ loading: true, appData: {} });
@@ -14,6 +17,7 @@ function App() {
       .get(`http://${window.location.host.split(".")[0]}.localhost:8080`)
       .then((res) => {
         setState({ appData: res.data[0], loading: false });
+        toast(`${res.data[0].assets}`);
       });
   }, []);
   if (loading) {
@@ -44,6 +48,7 @@ function App() {
         <Header />
         <Body />
         <Footer />
+        <ToastContainer />
       </ThemeProvider>
     </AppContext.Provider>
   );
